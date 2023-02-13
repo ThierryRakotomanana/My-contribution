@@ -1,0 +1,142 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #050505;
+}
+
+.cube
+{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+    0%
+    {
+        transform: rotateX(-30deg) rotateY(0deg);
+    }
+    100% 
+    {
+        transform: rotateX(-30deg) rotateY(360deg);
+    }
+}
+.cube div 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.cube div div
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background :  linear-gradient(#151515, #00ec00);
+    transform: rotateY(calc(90deg * var(--i))) translateZ(150px);
+
+}
+
+.top
+{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-color: #222;
+    transform: rotateX(90deg) translateZ(200px);
+}
+
+.top::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background-color: #0f0;
+    transform: translateZ(-450px);
+    filter: blur(30px);
+    box-shadow: 0 0 120px rgba(0, 255, 0, 0.2),
+    0 0 150px rgba(0, 255, 0, 0.4),
+    0 0 250px rgba(0, 255, 0, 0.6),
+    0 0 450px rgba(0, 255, 0, 0.8),
+    0 0 650px rgba(0, 255, 0, 1);
+}
+
+
+.loader {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #333;
+    border-radius: 50%;
+    box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+    10px 10px 70px rgba(0, 0, 0, 0.25);
+    border: 1.25px solid #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.loader::before {
+    content: '';
+    position: absolute;
+    inset: 40px;
+    border-radius: 50%;
+    border: 5px dashed #666;
+    box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+.loader::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px dashed #666;
+    box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+    inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.35);
+}
+
+.loader span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    transform-origin: top left;
+    animation: animatein 2s linear infinite;
+}
+
+@keyframes animatein {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }    
+}
